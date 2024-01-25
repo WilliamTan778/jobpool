@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 gcr.io/distroless/static-debian11
+FROM alpine
 
 ADD jobpool_agent /usr/local/bin/
 ADD jobpoolctl /usr/local/bin/
@@ -6,5 +6,8 @@ ADD jobpoolctl /usr/local/bin/
 WORKDIR /var/jobpool/
 WORKDIR /var/lib/jobpool/
 WORKDIR /etc/jobpool/
+
+RUN chmod +x /usr/local/bin/jobpool_agent
+RUN chmod +x /usr/local/bin/jobpoolctl
 
 CMD ["/usr/local/bin/jobpool_agent"]

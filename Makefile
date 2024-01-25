@@ -227,7 +227,6 @@ build-docker-release-main:
 build-docker-release-agent:
 	$(info ETCD_VERSION: $(ETCD_VERSION))
 	cp ./agent/Dockerfile.$(ARCH) ./bin/Dockerfile-release.$(ARCH)
-	chmod +x ./bin/*
 	docker build \
     	  --network=host \
     	  --tag registry.cn-beijing.aliyuncs.com/yunli-data-platform/jobpool-client-v2:$(ETCD_VERSION) \
