@@ -1,0 +1,10 @@
+FROM --platform=linux/arm64 gcr.io/distroless/static-debian11
+
+ADD jobpool_agent /usr/local/bin/
+ADD jobpoolctl /usr/local/bin/
+
+WORKDIR /var/jobpool/
+WORKDIR /var/lib/jobpool/
+WORKDIR /etc/jobpool/
+
+CMD ["/usr/local/bin/jobpool_agent"]
